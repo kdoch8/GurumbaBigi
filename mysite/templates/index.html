@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Mil Binug Dhambur</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="../static/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+
+  <!-- Custom styles for this template -->
+  <link href="../static/css/one-page-wonder.css" rel="stylesheet">
+
+<style>
+#my3dobj{
+     transform: scale3d(3,3,3);
+}
+.model {
+  animation: spin 25s linear infinite;
+
+ }
+ @keyframes spin {
+   to {
+     transform: rotateY(1turn)
+   }
+ }
+img.zoom {
+    width: 100%;
+    height: 200px;
+    border-radius:5px;
+    object-fit:cover;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+}
+
+
+.transition {
+    -webkit-transform: scale(1.5);
+    -moz-transform: scale(1.5);
+    -o-transform: scale(1.5);
+    transform: scale(1.5);
+}
+    .modal-header {
+
+     border-bottom: none;
+}
+    .modal-title {
+        color:#000;
+    }
+    .modal-footer{
+      display:none;
+    }
+
+
+
+.page-top{
+            margin-top:85px;
+        }
+
+
+.thumb {
+    position: relative;
+    width: 50%;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
+.zoom img-fluid {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #FFFFFF;
+}
+
+.thumb:hover .overlay {
+    opacity: 1;
+}
+
+.text {
+    color: black;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+</style>
+
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">Team Gurumba bigi</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+
+          <li class="nav-item">
+            <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{langselect}}
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="{{url_for('index')}}">English</a>
+    <a class="dropdown-item" href="{{url_for('butchulla')}}">Butchulla</a>
+    <a class="dropdown-item" href="{{url_for('dharumbal')}}">Dharumbal</a>
+    <a class="dropdown-item" href="{{url_for('duungidjawu')}}">Duungidjawu</a>
+    <a class="dropdown-item" href="{{url_for('gooreng_gooreng')}}">Gooreng Goreng</a>
+    <a class="dropdown-item" href="{{url_for('gunggari')}}">Gunggari</a>
+    <a class="dropdown-item" href="{{url_for('kala_kawaw_ya')}}">Kala Kawaw Ya</a>
+    <a class="dropdown-item" href="{{url_for('ku_ku_yalanji')}}">KuKu Yalanji</a>
+    <a class="dropdown-item" href="{{url_for('turubul')}}">Turubul</a>
+    <a class="dropdown-item" href="{{url_for('wakka_wakka')}}">Wakka Wakka</a>
+    <a class="dropdown-item" href="{{url_for('yugambeh')}}">Yugambeh</a>
+    <a class="dropdown-item" href="{{url_for('yugarabul')}}">Yugarabul</a>
+    <a class="dropdown-item" href="{{url_for('yuggera')}}">Yuggera</a>
+    <a class="dropdown-item" href="{{url_for('yuwaalaraay')}}">Yuwaalaraay</a>
+  </div>
+</div>
+
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="masthead text-center text-white" style='background-image: url("../static/img/photographic-background-1540116_1280.jpg");'>
+    <div class="masthead-content">
+      <div class="container">
+        <h1 class="masthead-heading mb-0">{{greeting}}</h1>
+        <h2 class="masthead-subheading mb-0">GovHack 2019</h2>
+        <a href="#aboutus" class="btn btn-primary btn-xl rounded-pill mt-5">About us</a>
+      </div>
+    </div>
+    <!--
+    <div class="bg-circle-1 bg-circle"></div>
+    <div class="bg-circle-2 bg-circle"></div>
+    <div class="bg-circle-3 bg-circle"></div>
+    <div class="bg-circle-4 bg-circle"></div>
+    -->
+  </header>
+
+  <section>
+    <div class="container">
+
+      <div class="row align-items-center">
+        <div class="col-lg-6 order-lg-2">
+          <div class="p-5" id="my3dobj">
+
+            <x-model id="my3dhead" class="model" src="../static/3d/basemeshfeet.obj"></x-model>
+
+          </div>
+        </div>
+        <div class="col-lg-6 order-lg-1">
+          <div class="p-5">
+            <h2 class="display-4">Map the body with {{langselect}}</h2>
+            {% for bodypartlist in bodyparts %}
+                {% if bodypartlist[0] == currlang %}
+                <p>
+                    {% for bodypart in bodypartlist %}
+                        {% if bodypart != None %}
+                            {% if bodypart != currlang %}
+                                <button type="button"  class="btn btn-info" style="margin:5px;">{{bodypart}}</button>
+                            {% endif %}
+                        {% endif %}
+                    {% endfor %}
+                </p>
+
+                {% endif %}
+            {% endfor %}
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+
+
+
+
+
+
+
+
+    <!-- Page Content -->
+   <div class="container page-top">
+<h2 class="display-4">Brisbane animal data</h2>
+
+
+        <div class="row">
+
+
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+              <img src="../static/img/bird.png" class="zoom img-fluid  " />
+
+                <div class="overlay">
+                  <div class="text">
+                    <p><b>Yugara: </b>Juwanbin</p>
+                    <p><b>Yugarabul/Turubul: </b>Juwahnduwan</p>
+                    <p><b>Yugambeh: </b>Noangbil</p>
+                   </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <img src="../static/img/dingo.png" class="zoom img-fluid  " />
+                <div class="overlay">
+    <div class="text">
+        <p><b>Yugara/Yugarabul/Turubul : </b>Mirri</p>
+        <p><b>Yugambeh: </b>Ngurun</p>
+    </div>
+</div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <img src="../static/img/emu.png" class="zoom img-fluid  " />
+                <div class="overlay">
+    <div class="text">
+        <p><b>Yugara/Turubul: </b>Nguyi</p>
+        <p><b>Yugarabul: </b>Ngurun</p>
+        <p><b>Yugambeh: </b>Murun</p>
+    </div>
+</div>
+            </div>
+
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <img src="../static/img/fish.png" class="zoom img-fluid  " />
+
+                    <div class="overlay">
+                        <div class="text">
+                            <p><b>Yugara: </b>Jawan</p>
+                            <p><b>Yugarabul: </b>Guyurr</p>
+                            <p><b>Turubul: </b>Kuyur</p>
+                            <p><b>Yugambeh: </b>Jalumm</p>
+                        </div>
+                    </div>
+            </div>
+            <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <img src="../static/img/horse.png" class="zoom img-fluid " />
+                <div class="overlay">
+    <div class="text">
+        <p><b>Yugara/Yugarabul/Turubul/<br>Yugambeh:</b>Yarraman</p>
+    </div>
+</div>
+            </div>
+
+             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <img src="../static/img/eagle.png" class="zoom img-fluid " />
+                <div class="overlay">
+    <div class="text">
+        <p><b>Yugara/Yugarabul: </b>Juwehrr</p>
+        <p><b>Turubul: </b>Dibbil</p>
+        <p><b>Yugambeh: </b>Mibunn</p>
+    </div>
+</div>
+            </div>
+
+             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <img src="../static/img/kangaroo.png" class="zoom img-fluid " />
+                <div class="overlay">
+    <div class="text">
+        <p><b>Yugara/Yugarabul: </b>Barrar</p>
+        <p><b>Turubul: </b>Gurooman</p>
+        <p><b>Yugambeh: </b>Muni</p>
+    </div>
+</div>
+            </div>
+
+             <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <img src="../static/img/koala.png" class="zoom img-fluid " />
+                <div class="overlay">
+    <div class="text">
+        <p><b>Yugara/Turubul: </b>Dumbirrbi</p>
+        <p><b>Yugarabul: </b>Marrambi</p>
+        <p><b>Yugambeh: </b>Borobi</p>
+    </div>
+</div>
+            </div>
+
+           <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <img src="../static/img/pelican.png" class="zoom img-fluid " />
+                <div class="overlay">
+    <div class="text">
+        <p><b>Yugara/Yugarabul/Turubul: </b>Bulualum</p>
+        <p><b>Yugambeh: </b>Chungarra</p>
+    </div>
+</div>
+            </div>
+                 <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <img src="../static/img/possum.png" class="zoom img-fluid " />
+                <div class="overlay">
+    <div class="text">
+        <p><b>Yugara/Yugarabul/Turubul: </b>Kubbi</p>
+        <p><b>Yugambeh: </b>Guran</p>
+    </div>
+</div>
+            </div>
+                 <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <img src="../static/img/shark.png" class="zoom img-fluid " />
+                <div class="overlay">
+    <div class="text">
+        <p><b>Yugara/Yugarabul/Turubul: </b>Powai</p>
+        <p><b>Yugambeh: </b>Bowai</p>
+    </div>
+</div>
+            </div>
+                 <div class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <img src="../static/img/snake.png" class="zoom img-fluid " />
+                <div class="overlay">
+    <div class="text">
+        <p><b>Yugara/Yugarabul: </b>Bui</p>
+        <p><b>Turubul: </b>Tumgu</p>
+        <p><b>Yugambeh: </b>Jomgwong</p>
+    </div>
+</div>
+            </div>
+
+      </div>
+
+     </div>
+
+
+
+
+
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-8 order-lg-2">
+          <div class="p-5">
+            <iframe width="700" height="500" src="https://app.powerbi.com/view?r=eyJrIjoiZDY0NGM4ZWUtZGIzYy00Y2ZjLTlkMjktZTc3NTg0MTNmMjI1IiwidCI6ImExYTc1OGQwLTRiODMtNGNkYS1iOGU2LWM5MjRhZGFlNWZkNCJ9" frameborder="0" allowFullScreen="true"></iframe>
+          </div>
+        </div>
+        <div class="col-lg-4 order-lg-1">
+          <div class="p-5">
+            <h2 class="display-4">Location</h2>
+            <p>Which location is associated with Australian and Torres Strait Island Indigenous languages?</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   <section>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 order-lg-2">
+          <div class="p-5 w-75">
+            <img src="../static/img/IMG_3375small.jpg">
+          </div>
+        </div>
+        <div class="col-lg-6 order-lg-1">
+          <div id="aboutus" class="p-5">
+            <h2 class="display-4">All about us!</h2>
+            <p>Our Gurumba Bigi initiative is centred around cultural and educational exchanges to showcase and strengthen Queensland and Torres Strait Island Indigenous languages.</p>
+
+<p>We launched into this project because approximately 90% of Australian Indigenous and Torres Strait Islander languages are endangered. By showcasing these languages, current and future generations might have the opportunity to learn from and connect to these diverse communities and their unique languages.</p>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-5 bg-black">
+    <div class="container">
+      <p class="m-0 text-center text-white small">GovHack 2019<a href="{{url_for('credits')}}" class="btn btn-secondary float-right btn-sm rounded-pill ">Credits</a></p>
+
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="../static/js/jquery.min.js"></script>
+  <script src="../static/js/bootstrap.bundle.min.js"></script>
+  <script src="../static/js/custom-element-polyfill.min.js"></script>
+  <script src="../static/js/three.min.js"></script>
+  <script src="../static/js/three-obj-loader.min.js"></script>
+  <script src="../static/js/model-element.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+  <script>
+
+
+
+
+
+
+$(document).ready(function(){
+  $(".fancybox").fancybox({
+        openEffect: "none",
+        closeEffect: "none"
+    });
+
+    $(".zoom").hover(function(){
+
+		$(this).addClass('transition');
+	}, function(){
+
+		$(this).removeClass('transition');
+	});
+});
+</script>
+
+</body>
+
+</html>
