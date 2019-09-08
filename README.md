@@ -35,3 +35,8 @@ Our vision is to showcase a small number of aboriginal Queensland languages by p
 To implement the website we used multiple tools, such as Python, Flask, Javascript, CSS, R and PowerBI. It is currently hosted on PythonAnywhere.
 
 Readmap: We would love to make it even more interactive, by adding additional languages and words. A full 3D model of a person with descriptive anatomy words shown in the model, as well as corresponding sound files for correct pronunciation.
+
+## Step by step files
+
+https://drive.google.com/drive/folders/10KnFlHyMl7Wao4pj49okOYr6RuGRiNRC?usp=sharing
+
